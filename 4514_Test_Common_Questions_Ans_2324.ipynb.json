@@ -1,0 +1,1612 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "I2RLQWZ_-ZCY"
+      },
+      "source": [
+        "## ITP4514 - Test Common Questions (Suggested Solutions)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "m_kyiud9-ZCa"
+      },
+      "source": [
+        "### Lecture 1"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "TE-5Hu0B-ZCb"
+      },
+      "source": [
+        "### Q1"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Cmw0pozV-ZCc",
+        "outputId": "562a18a7-4fe5-4f16-b213-98acf2f02839"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Enter score between 1 and 100: 72\n",
+            "Your grade is B\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Q1\n",
+        "score = int(input(\"Enter score between 1 and 100: \"))\n",
+        "if score < 40:\n",
+        "    grade = 'F'\n",
+        "elif score < 50:\n",
+        "    grade = 'E'\n",
+        "elif score < 60:\n",
+        "    grade = 'D'\n",
+        "elif score < 70:\n",
+        "    grade = 'C'\n",
+        "elif score < 80:\n",
+        "    grade = 'B'\n",
+        "else:\n",
+        "    grade = 'A'\n",
+        "\n",
+        "print(\"Your grade is %s\" %(grade))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "UmojL-hg-ZCd"
+      },
+      "source": [
+        "### Q2"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "hEAoiIGt-ZCe",
+        "outputId": "1da3f066-136a-4692-f3dd-027141f2c9a5"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "      1\n",
+            "     1 1\n",
+            "    1 2 1\n",
+            "   1 3 3 1\n",
+            "  1 4 6 4 1\n",
+            "     1\n",
+            "    1 1\n",
+            "   1 2 1\n",
+            "  1 3 3 1\n",
+            " 1 4 6 4 1\n"
+          ]
+        }
+      ],
+      "source": [
+        "# Version 1\n",
+        "\n",
+        "# input n\n",
+        "n = 5\n",
+        "\n",
+        "for i in range(1, n+1):\n",
+        "    for j in range(0, n-i+1):\n",
+        "        print(' ', end='')\n",
+        "\n",
+        "    # first element is always 1\n",
+        "    C = 1\n",
+        "    for j in range(1, i+1):\n",
+        "\n",
+        "        # first value in a line is always 1\n",
+        "        print(' ', C, sep='', end='')\n",
+        "\n",
+        "        # using Binomial Coefficient\n",
+        "        C = C * (i - j) // j\n",
+        "    print()\n",
+        "\n",
+        "# Version 2\n",
+        "\n",
+        "# input n\n",
+        "n = 5\n",
+        "\n",
+        "# iterarte upto n\n",
+        "for i in range(n):\n",
+        "\t# adjust space\n",
+        "\tprint(' '*(n-i), end='')\n",
+        "\n",
+        "\t# compute power of 11\n",
+        "\tprint(' '.join(map(str, str(11**i))))\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "cw5mAY-r-ZCf"
+      },
+      "source": [
+        "### Q3"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "5jSikUgz-ZCf",
+        "outputId": "b47aa983-0fe2-4d8b-cb02-e554e4858ca2"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "code practice quiz geeks\n"
+          ]
+        }
+      ],
+      "source": [
+        "# To reverse words in a given string\n",
+        "\n",
+        "# input string\n",
+        "string = \"geeks quiz practice code\"\n",
+        "# reversing words in a given string\n",
+        "s = string.split()[::-1]\n",
+        "l = []\n",
+        "for i in s:\n",
+        "    # apending reversed words to l\n",
+        "    l.append(i)\n",
+        "# printing reverse words\n",
+        "print(\" \".join(l))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "10iIgctI-ZCg"
+      },
+      "source": [
+        "### Lecture 2"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zjYvJ2kM-ZCg"
+      },
+      "source": [
+        "### Q4"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "PN8neS1v-ZCh",
+        "outputId": "aeb653e5-f887-4d50-b1b0-c08b1fb1aaf4"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "array([[110, 190, 134, 104, 199, 108],\n",
+              "       [101, 111, 123, 180, 135, 171],\n",
+              "       [193, 108, 180, 152, 139, 120],\n",
+              "       [172, 137, 122, 109, 150, 134]])"
+            ]
+          },
+          "execution_count": 29,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q4(a)\n",
+        "import numpy as np\n",
+        "num = np.random.randint(101, 200, size=(4,6))\n",
+        "#num = np.random.randint(101, 200, size=24).reshape(4,6)\n",
+        "num"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "lBc4QpQK-ZCh",
+        "outputId": "84ebca6d-00c1-451c-bc2c-76854e98f602"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "array([[110, 134, 199, 101],\n",
+              "       [123, 135, 193, 180],\n",
+              "       [139, 172, 122, 150]])"
+            ]
+          },
+          "execution_count": 31,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q4(b)\n",
+        "num2 = num.flatten()[::2].reshape(3,4)\n",
+        "num2"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "INGgPAGJ-ZCh",
+        "outputId": "bd6def7a-d4a2-4fde-daf9-37216c4986b5"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "array([[134, 199],\n",
+              "       [123, 135],\n",
+              "       [180, 139],\n",
+              "       [122, 150]])"
+            ]
+          },
+          "execution_count": 32,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q4(c)\n",
+        "num3 = num[:,[2,4]]\n",
+        "num3"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "EGRQoEc9-ZCi",
+        "outputId": "9fa438ae-97a0-4416-8b2e-f281634b383d"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "array([110, 111, 180, 109])"
+            ]
+          },
+          "execution_count": 33,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q4(d)\n",
+        "num4 = num.flatten()[::num.shape[1]+1]\n",
+        "num4"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Wgvj88bg-ZCi"
+      },
+      "source": [
+        "### Q5"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "0I3-O6Bo-ZCi"
+      },
+      "outputs": [],
+      "source": [
+        "# Q5(a)\n",
+        "import pandas as pd\n",
+        "from pandas import DataFrame"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "q_nNoti3-ZCj",
+        "outputId": "c6af5f7c-8780-4592-d421-c85450e4daf7"
+      },
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "             Apples  Bananas  Cherries  Grapes  Oranges\n",
+              "ParknShop       200      155       189     254      340\n",
+              "Gateway         152      182       174     230      320\n",
+              "City Super      126      169       151     184      210\n",
+              "Q Club          217      152       160     242      298\n",
+              "3hree Sixty     176      174       187     176      169"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-c795cc15-3776-4a71-9c49-62c3338e4535\">\n",
+              "    <div class=\"colab-df-container\">\n",
+              "      <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Apples</th>\n",
+              "      <th>Bananas</th>\n",
+              "      <th>Cherries</th>\n",
+              "      <th>Grapes</th>\n",
+              "      <th>Oranges</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>ParknShop</th>\n",
+              "      <td>200</td>\n",
+              "      <td>155</td>\n",
+              "      <td>189</td>\n",
+              "      <td>254</td>\n",
+              "      <td>340</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Gateway</th>\n",
+              "      <td>152</td>\n",
+              "      <td>182</td>\n",
+              "      <td>174</td>\n",
+              "      <td>230</td>\n",
+              "      <td>320</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>City Super</th>\n",
+              "      <td>126</td>\n",
+              "      <td>169</td>\n",
+              "      <td>151</td>\n",
+              "      <td>184</td>\n",
+              "      <td>210</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Q Club</th>\n",
+              "      <td>217</td>\n",
+              "      <td>152</td>\n",
+              "      <td>160</td>\n",
+              "      <td>242</td>\n",
+              "      <td>298</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3hree Sixty</th>\n",
+              "      <td>176</td>\n",
+              "      <td>174</td>\n",
+              "      <td>187</td>\n",
+              "      <td>176</td>\n",
+              "      <td>169</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "      <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-c795cc15-3776-4a71-9c49-62c3338e4535')\"\n",
+              "              title=\"Convert this dataframe to an interactive table.\"\n",
+              "              style=\"display:none;\">\n",
+              "        \n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "       width=\"24px\">\n",
+              "    <path d=\"M0 0h24v24H0V0z\" fill=\"none\"/>\n",
+              "    <path d=\"M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z\"/><path d=\"M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z\"/>\n",
+              "  </svg>\n",
+              "      </button>\n",
+              "      \n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      flex-wrap:wrap;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "      <script>\n",
+              "        const buttonEl =\n",
+              "          document.querySelector('#df-c795cc15-3776-4a71-9c49-62c3338e4535 button.colab-df-convert');\n",
+              "        buttonEl.style.display =\n",
+              "          google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "        async function convertToInteractive(key) {\n",
+              "          const element = document.querySelector('#df-c795cc15-3776-4a71-9c49-62c3338e4535');\n",
+              "          const dataTable =\n",
+              "            await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                     [key], {});\n",
+              "          if (!dataTable) return;\n",
+              "\n",
+              "          const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "            '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "            + ' to learn more about interactive tables.';\n",
+              "          element.innerHTML = '';\n",
+              "          dataTable['output_type'] = 'display_data';\n",
+              "          await google.colab.output.renderOutput(dataTable, element);\n",
+              "          const docLink = document.createElement('div');\n",
+              "          docLink.innerHTML = docLinkHtml;\n",
+              "          element.appendChild(docLink);\n",
+              "        }\n",
+              "      </script>\n",
+              "    </div>\n",
+              "  </div>\n",
+              "  "
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ],
+      "source": [
+        "data = {'Apples': [200, 152, 126, 217, 176],\n",
+        "        'Bananas': [155, 182, 169, 152, 174],\n",
+        "        'Cherries': [189, 174, 151, 160, 187],\n",
+        "        'Grapes': [254, 230, 184, 242, 176],\n",
+        "        'Oranges': [340, 320, 210, 298, 169]}\n",
+        "supermarkets = ['ParknShop', 'Gateway', 'City Super', 'Q Club', '3hree Sixty']\n",
+        "sales = DataFrame(data, index=supermarkets)\n",
+        "sales"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "w_QYe04a-ZCj",
+        "outputId": "097dc1d3-0e57-44b5-a993-28e2bd487a23"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "169"
+            ]
+          },
+          "execution_count": 36,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q5(b)\n",
+        "sales.loc['City Super']['Bananas']"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "5BBso56R-ZCj",
+        "outputId": "861e67b8-311b-4504-f72a-8be3e109564a"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Apples</th>\n",
+              "      <th>Bananas</th>\n",
+              "      <th>Cherries</th>\n",
+              "      <th>Grapes</th>\n",
+              "      <th>Oranges</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>ParknShop</th>\n",
+              "      <td>200</td>\n",
+              "      <td>155</td>\n",
+              "      <td>189</td>\n",
+              "      <td>254</td>\n",
+              "      <td>340</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Gateway</th>\n",
+              "      <td>152</td>\n",
+              "      <td>182</td>\n",
+              "      <td>174</td>\n",
+              "      <td>230</td>\n",
+              "      <td>320</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Q Club</th>\n",
+              "      <td>217</td>\n",
+              "      <td>152</td>\n",
+              "      <td>160</td>\n",
+              "      <td>242</td>\n",
+              "      <td>298</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3hree Sixty</th>\n",
+              "      <td>176</td>\n",
+              "      <td>174</td>\n",
+              "      <td>187</td>\n",
+              "      <td>176</td>\n",
+              "      <td>169</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "             Apples  Bananas  Cherries  Grapes  Oranges\n",
+              "ParknShop       200      155       189     254      340\n",
+              "Gateway         152      182       174     230      320\n",
+              "Q Club          217      152       160     242      298\n",
+              "3hree Sixty     176      174       187     176      169"
+            ]
+          },
+          "execution_count": 40,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q5(c)\n",
+        "sales[sales['Apples']>150]"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "r-IHgsuX-ZCk",
+        "outputId": "44caffb2-d97e-4736-edec-7a15a3d1b3ee"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Apples</th>\n",
+              "      <th>Bananas</th>\n",
+              "      <th>Cherries</th>\n",
+              "      <th>Grapes</th>\n",
+              "      <th>Oranges</th>\n",
+              "      <th>Total</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>ParknShop</th>\n",
+              "      <td>200</td>\n",
+              "      <td>155</td>\n",
+              "      <td>189</td>\n",
+              "      <td>254</td>\n",
+              "      <td>340</td>\n",
+              "      <td>1138</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Gateway</th>\n",
+              "      <td>152</td>\n",
+              "      <td>182</td>\n",
+              "      <td>174</td>\n",
+              "      <td>230</td>\n",
+              "      <td>320</td>\n",
+              "      <td>1058</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>City Super</th>\n",
+              "      <td>126</td>\n",
+              "      <td>169</td>\n",
+              "      <td>151</td>\n",
+              "      <td>184</td>\n",
+              "      <td>210</td>\n",
+              "      <td>840</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>Q Club</th>\n",
+              "      <td>217</td>\n",
+              "      <td>152</td>\n",
+              "      <td>160</td>\n",
+              "      <td>242</td>\n",
+              "      <td>298</td>\n",
+              "      <td>1069</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3hree Sixty</th>\n",
+              "      <td>176</td>\n",
+              "      <td>174</td>\n",
+              "      <td>187</td>\n",
+              "      <td>176</td>\n",
+              "      <td>169</td>\n",
+              "      <td>882</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "             Apples  Bananas  Cherries  Grapes  Oranges  Total\n",
+              "ParknShop       200      155       189     254      340   1138\n",
+              "Gateway         152      182       174     230      320   1058\n",
+              "City Super      126      169       151     184      210    840\n",
+              "Q Club          217      152       160     242      298   1069\n",
+              "3hree Sixty     176      174       187     176      169    882"
+            ]
+          },
+          "execution_count": 41,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "# Q5(d)\n",
+        "sales['Total'] = sales.sum(axis=1)\n",
+        "sales"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Q6\n",
+        "\n",
+        "head()\n"
+      ],
+      "metadata": {
+        "id": "tAWD9M_y0PIL"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Q7"
+      ],
+      "metadata": {
+        "id": "utH0A-mF0pMc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "\n",
+        "Student_data = {\n",
+        "    'Student ID': [1, 2, 3, 4, 5, 6, 7, 8],\n",
+        "    'Name': ['John Doe', 'Jane Doe', 'Alex Lee', 'Sarah Kim', 'Michael Smith', 'Emily Johnson', 'David Brown', 'Olivia Wilson'],\n",
+        "    'Age': [18, 17, 16, 18, 17, 16, 17, 18],\n",
+        "    'Gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Male', 'Female'],\n",
+        "    'Major': ['IT', 'Design', 'IT', 'Design', 'Engineering', 'Design', 'IT', 'Design']\n",
+        "}\n",
+        "\n",
+        "Student_df = pd.DataFrame(Student_data)\n",
+        "print(Student_df)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "FWnHKCX20sAK",
+        "outputId": "cfc340c4-68b6-49b3-cd47-ba18b7581079"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "   Student ID           Name  Age  Gender        Major\n",
+            "0           1       John Doe   18    Male           IT\n",
+            "1           2       Jane Doe   17  Female       Design\n",
+            "2           3       Alex Lee   16    Male           IT\n",
+            "3           4      Sarah Kim   18  Female       Design\n",
+            "4           5  Michael Smith   17    Male  Engineering\n",
+            "5           6  Emily Johnson   16  Female       Design\n",
+            "6           7    David Brown   17    Male           IT\n",
+            "7           8  Olivia Wilson   18  Female       Design\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "Student_df.head()"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 206
+        },
+        "id": "2KNFfwGZ0wmq",
+        "outputId": "cbff1045-da74-43f9-b256-32630f4fecaf"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "   Student ID           Name  Age  Gender        Major\n",
+              "0           1       John Doe   18    Male           IT\n",
+              "1           2       Jane Doe   17  Female       Design\n",
+              "2           3       Alex Lee   16    Male           IT\n",
+              "3           4      Sarah Kim   18  Female       Design\n",
+              "4           5  Michael Smith   17    Male  Engineering"
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-6584f12a-a0af-4d2e-a552-1d37ee9793a9\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Student ID</th>\n",
+              "      <th>Name</th>\n",
+              "      <th>Age</th>\n",
+              "      <th>Gender</th>\n",
+              "      <th>Major</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>1</td>\n",
+              "      <td>John Doe</td>\n",
+              "      <td>18</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>IT</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>2</td>\n",
+              "      <td>Jane Doe</td>\n",
+              "      <td>17</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>Design</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>3</td>\n",
+              "      <td>Alex Lee</td>\n",
+              "      <td>16</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>IT</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>4</td>\n",
+              "      <td>Sarah Kim</td>\n",
+              "      <td>18</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>Design</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>5</td>\n",
+              "      <td>Michael Smith</td>\n",
+              "      <td>17</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>Engineering</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-6584f12a-a0af-4d2e-a552-1d37ee9793a9')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-6584f12a-a0af-4d2e-a552-1d37ee9793a9 button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-6584f12a-a0af-4d2e-a552-1d37ee9793a9');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "<div id=\"df-3eb51621-b5c2-4045-89f5-fa25abb93071\">\n",
+              "  <button class=\"colab-df-quickchart\" onclick=\"quickchart('df-3eb51621-b5c2-4045-89f5-fa25abb93071')\"\n",
+              "            title=\"Suggest charts.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "<svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\"viewBox=\"0 0 24 24\"\n",
+              "     width=\"24px\">\n",
+              "    <g>\n",
+              "        <path d=\"M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z\"/>\n",
+              "    </g>\n",
+              "</svg>\n",
+              "  </button>\n",
+              "\n",
+              "<style>\n",
+              "  .colab-df-quickchart {\n",
+              "      --bg-color: #E8F0FE;\n",
+              "      --fill-color: #1967D2;\n",
+              "      --hover-bg-color: #E2EBFA;\n",
+              "      --hover-fill-color: #174EA6;\n",
+              "      --disabled-fill-color: #AAA;\n",
+              "      --disabled-bg-color: #DDD;\n",
+              "  }\n",
+              "\n",
+              "  [theme=dark] .colab-df-quickchart {\n",
+              "      --bg-color: #3B4455;\n",
+              "      --fill-color: #D2E3FC;\n",
+              "      --hover-bg-color: #434B5C;\n",
+              "      --hover-fill-color: #FFFFFF;\n",
+              "      --disabled-bg-color: #3B4455;\n",
+              "      --disabled-fill-color: #666;\n",
+              "  }\n",
+              "\n",
+              "  .colab-df-quickchart {\n",
+              "    background-color: var(--bg-color);\n",
+              "    border: none;\n",
+              "    border-radius: 50%;\n",
+              "    cursor: pointer;\n",
+              "    display: none;\n",
+              "    fill: var(--fill-color);\n",
+              "    height: 32px;\n",
+              "    padding: 0;\n",
+              "    width: 32px;\n",
+              "  }\n",
+              "\n",
+              "  .colab-df-quickchart:hover {\n",
+              "    background-color: var(--hover-bg-color);\n",
+              "    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "    fill: var(--button-hover-fill-color);\n",
+              "  }\n",
+              "\n",
+              "  .colab-df-quickchart-complete:disabled,\n",
+              "  .colab-df-quickchart-complete:disabled:hover {\n",
+              "    background-color: var(--disabled-bg-color);\n",
+              "    fill: var(--disabled-fill-color);\n",
+              "    box-shadow: none;\n",
+              "  }\n",
+              "\n",
+              "  .colab-df-spinner {\n",
+              "    border: 2px solid var(--fill-color);\n",
+              "    border-color: transparent;\n",
+              "    border-bottom-color: var(--fill-color);\n",
+              "    animation:\n",
+              "      spin 1s steps(1) infinite;\n",
+              "  }\n",
+              "\n",
+              "  @keyframes spin {\n",
+              "    0% {\n",
+              "      border-color: transparent;\n",
+              "      border-bottom-color: var(--fill-color);\n",
+              "      border-left-color: var(--fill-color);\n",
+              "    }\n",
+              "    20% {\n",
+              "      border-color: transparent;\n",
+              "      border-left-color: var(--fill-color);\n",
+              "      border-top-color: var(--fill-color);\n",
+              "    }\n",
+              "    30% {\n",
+              "      border-color: transparent;\n",
+              "      border-left-color: var(--fill-color);\n",
+              "      border-top-color: var(--fill-color);\n",
+              "      border-right-color: var(--fill-color);\n",
+              "    }\n",
+              "    40% {\n",
+              "      border-color: transparent;\n",
+              "      border-right-color: var(--fill-color);\n",
+              "      border-top-color: var(--fill-color);\n",
+              "    }\n",
+              "    60% {\n",
+              "      border-color: transparent;\n",
+              "      border-right-color: var(--fill-color);\n",
+              "    }\n",
+              "    80% {\n",
+              "      border-color: transparent;\n",
+              "      border-right-color: var(--fill-color);\n",
+              "      border-bottom-color: var(--fill-color);\n",
+              "    }\n",
+              "    90% {\n",
+              "      border-color: transparent;\n",
+              "      border-bottom-color: var(--fill-color);\n",
+              "    }\n",
+              "  }\n",
+              "</style>\n",
+              "\n",
+              "  <script>\n",
+              "    async function quickchart(key) {\n",
+              "      const quickchartButtonEl =\n",
+              "        document.querySelector('#' + key + ' button');\n",
+              "      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.\n",
+              "      quickchartButtonEl.classList.add('colab-df-spinner');\n",
+              "      try {\n",
+              "        const charts = await google.colab.kernel.invokeFunction(\n",
+              "            'suggestCharts', [key], {});\n",
+              "      } catch (error) {\n",
+              "        console.error('Error during call to suggestCharts:', error);\n",
+              "      }\n",
+              "      quickchartButtonEl.classList.remove('colab-df-spinner');\n",
+              "      quickchartButtonEl.classList.add('colab-df-quickchart-complete');\n",
+              "    }\n",
+              "    (() => {\n",
+              "      let quickchartButtonEl =\n",
+              "        document.querySelector('#df-3eb51621-b5c2-4045-89f5-fa25abb93071 button');\n",
+              "      quickchartButtonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "    })();\n",
+              "  </script>\n",
+              "</div>\n",
+              "    </div>\n",
+              "  </div>\n"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df_new = Student_df[['Name', 'Gender']].rename(columns={'Gender': 'Sex'})"
+      ],
+      "metadata": {
+        "id": "BZOz79jg1Rym"
+      },
+      "execution_count": 4,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "2TDc9ygE-ZCk"
+      },
+      "source": [
+        "### Lecture 3"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "9j4WxmGi-ZCl"
+      },
+      "source": [
+        "### Q8\n",
+        "A* search evaluates nodes by combining g(n), the cost to reach the node, and h(n), the cost to get from the node to the goal\n",
+        "f(n)=g(n)+h(n).\n",
+        "\n",
+        "Since g(n) gives the path cost from the start node to node n, and h(n) is the estimated cost of the cheapest path from n to the goal, we have f(n) = estimated cost of the cheapest solution through n.\n",
+        "\n",
+        "Thus, if we are trying to find the cheapest solution, a reasonable thing to try first is the node with the lowest value of g(n)+h(n). It turns out that this strategy is more than just reasonable: provided that the heuristic function h(n) satisfies certain conditions, A* search is both complete and optimal. The algorithm is identical to uniform-cost search except that A* uses g+h instead of g"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "bJ8mBhpy-ZCl"
+      },
+      "source": [
+        "### Q9\n",
+        "Breadth-first Search: First-in-first-out Queue. It visits and removes the node which enters into the queue first.\n",
+        "\n",
+        "Uniform Cost Search: Priority Queue. It sorts the queue based on the highest priority of each node (by the path cost), and expands the highest-priority node in the queue first.\n",
+        "\n",
+        "Greedy (Best-first) Search: Priority Queue. It sorts the queue based on the highest priority of each node (by the heuristic cost), and expands the highest-priority node in the queue first."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Q10\n",
+        "Output: A B C D E H F G"
+      ],
+      "metadata": {
+        "id": "QVydeiU82JLr"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Q11\n",
+        "Opened=[A15]  Closed=[] <br>\n",
+        "Opened=[B4, C10]  Closed=[A15] <br>\n",
+        "Opened=[E1, D3, C10]  Closed=[A15, B4] <br>\n",
+        "Opened=[D3, F5, C10] Closed=[A15, B4, E1] <br>\n",
+        "Opened=[F5, H7, C10] Closed=[A15, B4, E1, D3] <br>\n",
+        "Opened=[G0, H7, C10] Closed=[A15, B4, E1, D3, F5] <br>\n",
+        "Opened=[H7, C10] Closed=[A15, B4, E1, D3, F5, G0] <br>\n",
+        "The goal is reached by A B E D F G."
+      ],
+      "metadata": {
+        "id": "oQ6_Z0n14dJS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "###Q12\n",
+        "Opened=[A15] Closed=[] <br>\n",
+        "Opened=[B11, D12] Closed=[A15] <br>\n",
+        "Opened=[D12, C13] Closed=[A15, B11] <br>\n",
+        "Opened=[C13, E13] Closed=[A15, B11, D12] <br>\n",
+        "Opened=[G11, E13] Closed=[A15, B11, D12, C13] <br>\n",
+        "Opened=[E13] Closed=[A15, B11, D12, C13, G11] <br>\n",
+        "\n",
+        "The goal is reached by A B D C G."
+      ],
+      "metadata": {
+        "id": "7yhZcBW96504"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "FKnCgKJN-ZCl"
+      },
+      "source": [
+        "### Q13"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "QUqvEDVC-ZCl"
+      },
+      "outputs": [],
+      "source": [
+        "graph = {\n",
+        "  'A' : ['B','C'],\n",
+        "  'B' : ['D', 'E'],\n",
+        "  'C' : ['F'],\n",
+        "  'D' : [],\n",
+        "  'E' : ['F'],\n",
+        "  'F' : []\n",
+        "}\n",
+        "\n",
+        "visited = []\n",
+        "queue = []"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "KFeLcg_H-ZCm"
+      },
+      "outputs": [],
+      "source": [
+        "def bfs(visited, graph, node):\n",
+        "  visited.append(node)\n",
+        "  queue.append(node)\n",
+        "\n",
+        "  while queue:\n",
+        "    s = queue.pop(0)\n",
+        "    print(s, end='')\n",
+        "\n",
+        "    for neighbour in graph[s]:\n",
+        "      if neighbour not in visited:\n",
+        "        visited.append(neighbour)\n",
+        "        queue.append(neighbour)\n",
+        "\n",
+        "    if len(queue) > 0: print(' > ', end='')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "97ko0Juw-ZCm",
+        "outputId": "13a9dff6-e271-45d6-cfa1-03c4fabd747b"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "A > B > C > D > E > F"
+          ]
+        }
+      ],
+      "source": [
+        "bfs(visited, graph, 'A')"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "zrT9Nucm-ZCm"
+      },
+      "source": [
+        "### Lecture 4"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "EJceojA9-ZCn"
+      },
+      "source": [
+        "### Q14"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Jeq5dBh3-ZCn"
+      },
+      "outputs": [],
+      "source": [
+        "from kanren import *\n",
+        "from unification.match import *"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8DgVlXPW-ZCn"
+      },
+      "outputs": [],
+      "source": [
+        "n = var()\n",
+        "\n",
+        "@match(0)\n",
+        "def factl(n):\n",
+        "    return 1\n",
+        "\n",
+        "@match(n)\n",
+        "def factl(n):\n",
+        "    return n * factl(n-1)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "cCQfLON3-ZCn",
+        "outputId": "38f054eb-adf9-495b-b116-164a689ae618"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "3628800"
+            ]
+          },
+          "execution_count": 4,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "factl(10)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "yyGaemqH-ZCn"
+      },
+      "source": [
+        "### Q15"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Znaboedh-ZCo"
+      },
+      "outputs": [],
+      "source": [
+        "# Given Code\n",
+        "parent = Relation()\n",
+        "facts(parent, ('Tom', 'Bobby'),\n",
+        "              ('Mary', 'Bobby'),\n",
+        "              ('Tom', 'Amy'),\n",
+        "              ('Mary', 'Amy'))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "8ie034Vj-ZCo"
+      },
+      "outputs": [],
+      "source": [
+        "male = Relation()\n",
+        "fact(male, 'Tom')\n",
+        "fact(male, 'Bobby')\n",
+        "\n",
+        "female = Relation()\n",
+        "fact(female, 'Mary')\n",
+        "fact(female, 'Amy')"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fNDiV0QH-ZCo"
+      },
+      "outputs": [],
+      "source": [
+        "def father(x, y):\n",
+        "    return lall(parent(x, y), male(x))\n",
+        "\n",
+        "def mother(x, y):\n",
+        "    return lall(parent(x, y), female(x))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "bWxuHLci-ZCo",
+        "outputId": "31e5d766-58e5-4e74-fc76-4c0c1a393731"
+      },
+      "outputs": [
+        {
+          "data": {
+            "text/plain": [
+              "(('Tom', 'Amy'), ('Tom', 'Bobby'))"
+            ]
+          },
+          "execution_count": 10,
+          "metadata": {},
+          "output_type": "execute_result"
+        }
+      ],
+      "source": [
+        "x = var()\n",
+        "y = var()\n",
+        "run(0, (x,y), father(x, y))"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "8hvBwTXC-ZCo"
+      },
+      "source": [
+        "### Q16\n",
+        "The two operations are <i>unifcation</i> and <i>backtracking</i>.<br>\n",
+        "In unification, A LPE can unify <b>person(kevin, dane)</b> and <b>person(L, S)</b> by binding L and S to atom kevin and dane, respectively.<br>\n",
+        "In backtracking, a LPE will go back to the previous goal, and after that, it will try to find another way to satisfy the goal."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "nXLtG5aK-ZCo"
+      },
+      "source": [
+        "### Lecture 5"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "6yhRf_Si-ZCp"
+      },
+      "source": [
+        "### Q17"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ONvjaPeH-ZCp"
+      },
+      "source": [
+        "<b>Probabilistic reasoning</b> is a way of knowledge representation where we apply the concept of probability to indicate the <b>uncertainty</b> in knowledge.<br>\n",
+        "<b>Probabilistic programming</b> is a programming paradigm that may be used to implement <b>probabilistic reasoning</b>."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Ua53LtpI-ZCp"
+      },
+      "source": [
+        "### Q18"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "P(A)=0.1,  P(B|A)=0.95,  P(B|Ac)=0.01.\n",
+        "\n",
+        "P(B)=P(A)⋅P(B|A)+P(Ac)⋅P(B|Ac)\n",
+        "=0.1×0.95+(1−0.1)×0.01=0.104\n",
+        "\n",
+        "P(A|B)=0.1×0.950.104=0.913."
+      ],
+      "metadata": {
+        "id": "E2gKaFQj_m5v"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "ObDXCKMm-ZCp"
+      },
+      "source": [
+        "### Q19\n",
+        "#### To solve this question using Bayes' rule, we can define the events as follows:\n",
+        "A: The person has the disease <br>\n",
+        "B: The person tests positive <br>\n",
+        "We are given the following probabilities: <br>\n",
+        "P(A) = 0.01 (probability of having the disease) <br>\n",
+        "P(B|A) = 0.95 (probability of testing positive given the disease) <br>\n",
+        "P(B|¬A) = 0.10 (probability of testing positive given not having the disease) <br>\n",
+        "We want to find P(A|B), the probability of having the disease given that the person tests positive. <br>\n",
+        "Using Bayes' rule, the formula for calculating P(A|B) is: <br>\n",
+        "P(A|B) = (P(B|A) * P(A)) / P(B) <br>\n",
+        "\n",
+        "To calculate P(B), we can use the law of total probability: <br>\n",
+        "P(B) = P(B|A) * P(A) + P(B|¬A) * P(¬A) <br>\n",
+        " = (0.95 * 0.01) + (0.10 * 0.99) <br>\n",
+        "= 0.0095 + 0.099 <br>\n",
+        "= 0.1085 <br>\n",
+        "\n",
+        "Therefore, the probability P(B) is 0.1085 or 10.85%.\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "I77xwT9z-ZCp"
+      },
+      "source": [
+        "### Q20"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "1FvfwbI2-ZCp"
+      },
+      "outputs": [],
+      "source": [
+        "import torch\n",
+        "import pyro\n",
+        "\n",
+        "def EA_marks():\n",
+        "    lab0 = pyro.sample('Lab Completion', pyro.distributions.Bernoulli(0.65))\n",
+        "    lab = 'Lab completed' if lab0.item() == 1.0 else 'Lab not completed'\n",
+        "    mean_mark = {'Lab completed': 75.0, 'Lab not completed': 63.0}[lab]\n",
+        "    scale_mark = {'Lab completed': 8.0, 'Lab not completed': 15.0}[lab]\n",
+        "    mark = pyro.sample('EA Mark', pyro.distributions.Normal(mean_mark, scale_mark))\n",
+        "    return lab, mark.item()"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "BkBsMtHP-ZCq",
+        "outputId": "b671dc10-b28a-416b-f98e-20e2da380de3"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "('Lab completed', 73.96704864501953)\n",
+            "('Lab completed', 79.46340942382812)\n",
+            "('Lab completed', 82.39796447753906)\n",
+            "('Lab not completed', 72.67635345458984)\n",
+            "('Lab completed', 69.89513397216797)\n",
+            "('Lab not completed', 77.98527526855469)\n",
+            "('Lab completed', 78.11686706542969)\n",
+            "('Lab completed', 63.94119644165039)\n",
+            "('Lab completed', 72.79742431640625)\n",
+            "('Lab not completed', 71.43900299072266)\n"
+          ]
+        }
+      ],
+      "source": [
+        "for _ in range(10):\n",
+        "    print(EA_marks())"
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "file_extension": ".py",
+      "mimetype": "text/x-python",
+      "name": "python",
+      "nbconvert_exporter": "python",
+      "pygments_lexer": "ipython3",
+      "version": "3.8.5"
+    },
+    "colab": {
+      "provenance": []
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
